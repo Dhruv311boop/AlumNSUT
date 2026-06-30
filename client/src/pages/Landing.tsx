@@ -1,16 +1,14 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRight, GraduationCap, Users, Briefcase, Calendar } from "lucide-react";
+import { ArrowRight, Users, Briefcase, Calendar } from "lucide-react";
 
 export default function Landing() {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 font-sans">
       {/* Navbar */}
       <nav className="flex items-center justify-between px-6 py-4 bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-slate-100">
-        <div className="flex items-center space-x-2">
-          <div className="bg-indigo-600 p-2 rounded-lg">
-            <GraduationCap className="text-white h-6 w-6" />
-          </div>
+        <div className="flex items-center space-x-3">
+          <img src="/logo.png" alt="AlumNSUT Logo" className="h-10 w-10 object-contain rounded-full border border-slate-200 shadow-sm" />
           <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-violet-600">
             AlumNSUT
           </span>
