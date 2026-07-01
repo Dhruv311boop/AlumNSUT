@@ -1,6 +1,7 @@
 import React from 'react';
-import AuthForm from '../../components/auth/AuthForm';
+import LoginForm from '../../components/auth/LoginForm';
+import { Role } from '../../context/AuthContext';
 
 export default function StudentLogin() {
-  return <AuthForm role="STUDENT" type="login" />;
+  return <LoginForm role="STUDENT" />;
 }

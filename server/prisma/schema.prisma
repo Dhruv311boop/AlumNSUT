@@ -43,19 +43,16 @@ model MentorProfile {
   userId            String   @unique
   user              User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   
-  firstName         String
-  lastName          String
+  fullName          String
+  phone             String
   profilePicture    String?
-  designation       String
+  currentPosition   String
   company           String
-  domain            String
+  industry          String
   yearsOfExperience Int
   bio               String   @db.Text
-  skills            String[]
-  graduationYear    Int
-  availability      String[] // Array of available days/times, e.g. ["Monday 10AM-12PM"]
   linkedinUrl       String?
-  githubUrl         String?
+  availability      String[] // Array of available days/times, e.g. ["Monday 10AM-12PM"]
   
   rating            Float    @default(0.0)
   sessionsCompleted Int      @default(0)
@@ -66,11 +63,13 @@ model StudentProfile {
   userId         String   @unique
   user           User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   
-  firstName      String
-  lastName       String
+  fullName       String
+  phone          String
   profilePicture String?
-  university     String
+  department     String
   graduationYear Int
+  linkedinUrl    String
+  githubUrl      String?
   bio            String?  @db.Text
 }
 

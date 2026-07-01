@@ -1,6 +1,6 @@
 import React from 'react';
-import AuthForm from '../../components/auth/AuthForm';
+import MentorSignupForm from '../../components/auth/MentorSignupForm';
 
 export default function MentorSignup() {
-  return <AuthForm role="MENTOR" type="signup" />;
+  return <MentorSignupForm />;
 }

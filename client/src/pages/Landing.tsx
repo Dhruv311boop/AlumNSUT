@@ -8,21 +8,21 @@ export default function Landing() {
       {/* Navbar */}
       <nav className="flex items-center justify-between px-6 py-4 bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-slate-100">
         <div className="flex items-center space-x-3">
-          <img src="/logo.png" alt="AlumNSUT Logo" className="h-10 w-10 object-contain rounded-full border border-slate-200 shadow-sm" />
-          <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-violet-600">
+          <img src="/logo.jpg" alt="AlumNSUT Logo" className="h-10 w-10 object-contain rounded-full border border-slate-200 shadow-sm" />
+          <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-red-600 to-red-800">
             AlumNSUT
           </span>
         </div>
         <div className="hidden md:flex space-x-8 text-sm font-medium text-slate-600">
-          <a href="#features" className="hover:text-indigo-600 transition-colors">Features</a>
-          <a href="#mentors" className="hover:text-indigo-600 transition-colors">Mentors</a>
-          <a href="#community" className="hover:text-indigo-600 transition-colors">Community</a>
+          <a href="#features" className="hover:text-red-600 transition-colors">Features</a>
+          <a href="#mentors" className="hover:text-red-600 transition-colors">Mentors</a>
+          <a href="#community" className="hover:text-red-600 transition-colors">Community</a>
         </div>
         <div className="flex space-x-4">
-          <Link to="/auth/role-selection" className="px-4 py-2 text-sm font-medium text-slate-700 hover:text-indigo-600 transition-colors">
+          <Link to="/auth/role-selection" className="px-4 py-2 text-sm font-medium text-slate-700 hover:text-red-600 transition-colors">
             Sign In
           </Link>
-          <Link to="/auth/role-selection" className="px-4 py-2 text-sm font-medium bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-all shadow-sm shadow-indigo-200">
+          <Link to="/auth/role-selection" className="px-4 py-2 text-sm font-medium bg-red-600 text-white rounded-lg hover:bg-red-700 transition-all shadow-sm shadow-red-200">
             Get Started
           </Link>
         </div>
@@ -35,9 +35,9 @@ export default function Landing() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center space-x-2 bg-indigo-50 border border-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm font-medium mb-8"
+            className="inline-flex items-center space-x-2 bg-red-50 border border-red-100 text-red-700 px-3 py-1 rounded-full text-sm font-medium mb-8"
           >
-            <span className="flex h-2 w-2 rounded-full bg-indigo-600"></span>
+            <span className="flex h-2 w-2 rounded-full bg-red-600"></span>
             <span>Join the exclusive NSUT Alumni Network</span>
           </motion.div>
           
@@ -48,7 +48,7 @@ export default function Landing() {
             className="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 mb-6"
           >
             Bridge the gap between <br className="hidden md:block"/>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-violet-600">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-red-800">
               Campus and Career
             </span>
           </motion.h1>
@@ -68,7 +68,7 @@ export default function Landing() {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4"
           >
-            <Link to="/auth/student/login" className="px-8 py-4 bg-indigo-600 text-white rounded-xl font-medium text-lg hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-200 flex items-center justify-center">
+            <Link to="/auth/student/login" className="px-8 py-4 bg-red-600 text-white rounded-xl font-medium text-lg hover:bg-red-700 transition-all shadow-lg shadow-red-200 flex items-center justify-center">
               Find a Mentor <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
             <Link to="/auth/mentor/signup" className="px-8 py-4 bg-white text-slate-700 border border-slate-200 rounded-xl font-medium text-lg hover:border-slate-300 hover:bg-slate-50 transition-all flex items-center justify-center">

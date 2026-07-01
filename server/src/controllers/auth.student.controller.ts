@@ -6,7 +6,7 @@ import { Role } from '@prisma/client';
 
 export const signup = async (req: Request, res: Response): Promise<void> => {
   try {
-    const { email, password, firstName, lastName, university, graduationYear, bio } = req.body;
+    const { email, password, fullName, phone, department, graduationYear, linkedinUrl, githubUrl, bio, profilePicture } = req.body;
 
     const existingUser = await prisma.user.findUnique({ where: { email } });
     if (existingUser) {
@@ -23,11 +23,14 @@ export const signup = async (req: Request, res: Response): Promise<void> => {
         role: Role.STUDENT,
         studentProfile: {
           create: {
-            firstName,
-            lastName,
-            university,
+            fullName,
+            phone,
+            department,
             graduationYear: parseInt(graduationYear),
-            bio
+            linkedinUrl,
+            githubUrl,
+            bio,
+            profilePicture
           }
         }
       }

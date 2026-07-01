@@ -1,6 +1,6 @@
 import React from 'react';
-import AuthForm from '../../components/auth/AuthForm';
+import StudentSignupForm from '../../components/auth/StudentSignupForm';
 
 export default function StudentSignup() {
-  return <AuthForm role="STUDENT" type="signup" />;
+  return <StudentSignupForm />;
 }

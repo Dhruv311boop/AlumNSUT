@@ -19,9 +19,13 @@ export const authenticate = (req: AuthRequest, res: Response, next: NextFunction
   }
 
   const token = authHeader.split(" ")[1];
+  if (!token) {
+    res.status(401).json({ error: "Unauthorized" });
+    return;
+  }
 
   try {
-    const decoded = jwt.verify(token, JWT_SECRET) as { userId: string; role: "STUDENT" | "MENTOR" };
+    const decoded = jwt.verify(token, JWT_SECRET as string) as any;
     req.user = decoded;
     next();
   } catch (error) {

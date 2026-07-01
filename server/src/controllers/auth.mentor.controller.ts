@@ -6,7 +6,7 @@ import { Role } from '@prisma/client';
 
 export const signup = async (req: Request, res: Response): Promise<void> => {
   try {
-    const { email, password, firstName, lastName, designation, company, domain, yearsOfExperience, bio, graduationYear } = req.body;
+    const { email, password, fullName, phone, company, currentPosition, yearsOfExperience, industry, bio, linkedinUrl, availability, profilePicture } = req.body;
 
     const existingUser = await prisma.user.findUnique({ where: { email } });
     if (existingUser) {
@@ -23,16 +23,16 @@ export const signup = async (req: Request, res: Response): Promise<void> => {
         role: Role.MENTOR,
         mentorProfile: {
           create: {
-            firstName,
-            lastName,
-            designation,
+            fullName,
+            phone,
             company,
-            domain,
+            currentPosition,
             yearsOfExperience: parseInt(yearsOfExperience),
+            industry,
             bio,
-            graduationYear: parseInt(graduationYear),
-            skills: [],
-            availability: []
+            linkedinUrl,
+            availability: availability || [],
+            profilePicture
           }
         }
       }
