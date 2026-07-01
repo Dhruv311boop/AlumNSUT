@@ -5,6 +5,7 @@ import morgan from "morgan";
 import { createServer } from "http";
 import { Server } from "socket.io";
 import dotenv from "dotenv";
+import routes from "./routes";
 
 dotenv.config();
 
@@ -27,6 +28,8 @@ app.use(express.json());
 app.use(morgan("dev"));
 
 // Routes
+app.use("/api", routes);
+
 app.get("/health", (req, res) => {
   res.status(200).json({ status: "ok" });
 });
@@ -45,8 +48,13 @@ io.on("connection", (socket) => {
   });
 });
 
-const PORT = process.env.PORT || 5000;
+// For Vercel Serverless Functions
+if (process.env.NODE_ENV !== "production") {
+  const PORT = process.env.PORT || 5000;
+  httpServer.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+  });
+}
 
-httpServer.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+// Export the express app for Vercel
+export default app;

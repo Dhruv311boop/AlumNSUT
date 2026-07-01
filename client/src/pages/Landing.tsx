@@ -19,10 +19,10 @@ export default function Landing() {
           <a href="#community" className="hover:text-indigo-600 transition-colors">Community</a>
         </div>
         <div className="flex space-x-4">
-          <Link to="/login" className="px-4 py-2 text-sm font-medium text-slate-700 hover:text-indigo-600 transition-colors">
+          <Link to="/auth/role-selection" className="px-4 py-2 text-sm font-medium text-slate-700 hover:text-indigo-600 transition-colors">
             Sign In
           </Link>
-          <Link to="/register" className="px-4 py-2 text-sm font-medium bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-all shadow-sm shadow-indigo-200">
+          <Link to="/auth/role-selection" className="px-4 py-2 text-sm font-medium bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-all shadow-sm shadow-indigo-200">
             Get Started
           </Link>
         </div>
@@ -68,10 +68,10 @@ export default function Landing() {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4"
           >
-            <Link to="/register" className="px-8 py-4 bg-indigo-600 text-white rounded-xl font-medium text-lg hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-200 flex items-center justify-center">
+            <Link to="/auth/student/login" className="px-8 py-4 bg-indigo-600 text-white rounded-xl font-medium text-lg hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-200 flex items-center justify-center">
               Find a Mentor <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
-            <Link to="/register?role=mentor" className="px-8 py-4 bg-white text-slate-700 border border-slate-200 rounded-xl font-medium text-lg hover:border-slate-300 hover:bg-slate-50 transition-all flex items-center justify-center">
+            <Link to="/auth/mentor/signup" className="px-8 py-4 bg-white text-slate-700 border border-slate-200 rounded-xl font-medium text-lg hover:border-slate-300 hover:bg-slate-50 transition-all flex items-center justify-center">
               Become a Mentor
             </Link>
           </motion.div>
