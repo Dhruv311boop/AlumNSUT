@@ -4,6 +4,7 @@ import { AuthProvider, useAuth } from './context/AuthContext';
 import ErrorBoundary from './components/common/ErrorBoundary';
 import LoadingSpinner from './components/common/LoadingSpinner';
 import RoleProtectedRoute from './components/routing/RoleProtectedRoute';
+import { ThemeProvider } from './context/ThemeContext';
 
 // Lazy-loaded Pages
 const Landing = lazy(() => import('./pages/Landing'));
@@ -40,6 +41,11 @@ const MentorEarnings = lazy(() => import('./pages/mentor/MentorEarnings'));
 
 // Admin Pages
 const AdminDashboard = lazy(() => import('./pages/admin/AdminDashboard'));
+
+// Forum Pages
+const ForumHome = lazy(() => import('./pages/forum/ForumHome'));
+const CreatePost = lazy(() => import('./pages/forum/CreatePost'));
+const PostDetail = lazy(() => import('./pages/forum/PostDetail'));
 
 // Public Route Wrapper (redirects if already logged in)
 const PublicRoute = ({ children }: { children: React.ReactNode }) => {
@@ -100,6 +106,11 @@ function AppRoutes() {
         {/* Admin Routes */}
         <Route path="/admin/dashboard" element={<RoleProtectedRoute allowedRoles={['ADMIN']}><AdminDashboard /></RoleProtectedRoute>} />
 
+        {/* Forum Routes */}
+        <Route path="/forum" element={<RoleProtectedRoute allowedRoles={['STUDENT', 'MENTOR']}><ForumHome /></RoleProtectedRoute>} />
+        <Route path="/forum/new" element={<RoleProtectedRoute allowedRoles={['STUDENT', 'MENTOR']}><CreatePost /></RoleProtectedRoute>} />
+        <Route path="/forum/:postId" element={<RoleProtectedRoute allowedRoles={['STUDENT', 'MENTOR']}><PostDetail /></RoleProtectedRoute>} />
+
         {/* 404 Route */}
         <Route path="/404" element={<NotFound />} />
         <Route path="*" element={<Navigate to="/404" replace />} />
@@ -111,11 +122,13 @@ function AppRoutes() {
 export default function App() {
   return (
     <ErrorBoundary>
-      <AuthProvider>
-        <BrowserRouter>
-          <AppRoutes />
-        </BrowserRouter>
-      </AuthProvider>
+      <ThemeProvider>
+        <AuthProvider>
+          <BrowserRouter>
+            <AppRoutes />
+          </BrowserRouter>
+        </AuthProvider>
+      </ThemeProvider>
     </ErrorBoundary>
   );
 }

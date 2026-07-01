@@ -1,32 +1,12 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight, Users, Briefcase, Calendar } from "lucide-react";
+import Navbar from "../components/common/Navbar";
 
 export default function Landing() {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 font-sans">
-      {/* Navbar */}
-      <nav className="flex items-center justify-between px-6 py-4 bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-slate-100">
-        <div className="flex items-center space-x-3">
-          <img src="/logo.jpg" alt="AlumNSUT Logo" className="h-10 w-10 object-contain rounded-full border border-slate-200 shadow-sm" />
-          <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-red-600 to-red-800">
-            AlumNSUT
-          </span>
-        </div>
-        <div className="hidden md:flex space-x-8 text-sm font-medium text-slate-600">
-          <a href="#features" className="hover:text-red-600 transition-colors">Features</a>
-          <a href="#mentors" className="hover:text-red-600 transition-colors">Mentors</a>
-          <a href="#community" className="hover:text-red-600 transition-colors">Community</a>
-        </div>
-        <div className="flex space-x-4">
-          <Link to="/auth/role-selection" className="px-4 py-2 text-sm font-medium text-slate-700 hover:text-red-600 transition-colors">
-            Sign In
-          </Link>
-          <Link to="/auth/role-selection" className="px-4 py-2 text-sm font-medium bg-red-600 text-white rounded-lg hover:bg-red-700 transition-all shadow-sm shadow-red-200">
-            Get Started
-          </Link>
-        </div>
-      </nav>
+      <Navbar />
 
       {/* Hero Section */}
       <main>

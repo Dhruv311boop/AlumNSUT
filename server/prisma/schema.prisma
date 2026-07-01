@@ -36,6 +36,9 @@ model User {
   
   sentBookings     Booking[] @relation("StudentBookings")
   receivedBookings Booking[] @relation("MentorBookings")
+  
+  likes            Like[]
+  bookmarks        Bookmark[]
 }
 
 model MentorProfile {
@@ -96,16 +99,53 @@ model ForumPost {
   id          String    @id @default(uuid())
   title       String
   content     String    @db.Text
+  category    String    @default("General")
   tags        String[]
-  likes       Int       @default(0)
+  likesCount  Int       @default(0)
+  views       Int       @default(0)
+  isAnonymous Boolean   @default(false)
   
   authorId    String
   author      User      @relation(fields: [authorId], references: [id], onDelete: Cascade)
   
   comments    Comment[]
+  likes       Like[]
+  bookmarks   Bookmark[]
   
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
+}
+
+model Like {
+  id          String    @id @default(uuid())
+  
+  userId      String
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  postId      String?
+  post        ForumPost? @relation(fields: [postId], references: [id], onDelete: Cascade)
+  
+  commentId   String?
+  comment     Comment?   @relation(fields: [commentId], references: [id], onDelete: Cascade)
+  
+  createdAt   DateTime  @default(now())
+  
+  @@unique([userId, postId])
+  @@unique([userId, commentId])
+}
+
+model Bookmark {
+  id          String    @id @default(uuid())
+  
+  userId      String
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  postId      String
+  post        ForumPost @relation(fields: [postId], references: [id], onDelete: Cascade)
+  
+  createdAt   DateTime  @default(now())
+  
+  @@unique([userId, postId])
 }
 
 model Comment {
@@ -114,6 +154,13 @@ model Comment {
   
   postId      String
   post        ForumPost @relation(fields: [postId], references: [id], onDelete: Cascade)
+  
+  parentId    String?
+  parent      Comment?  @relation("CommentReplies", fields: [parentId], references: [id], onDelete: Cascade)
+  replies     Comment[] @relation("CommentReplies")
+  
+  likesCount  Int       @default(0)
+  likes       Like[]
   
   authorId    String
   author      User      @relation(fields: [authorId], references: [id], onDelete: Cascade)
