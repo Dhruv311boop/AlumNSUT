@@ -50,7 +50,7 @@ io.on("connection", (socket) => {
 
 // For Vercel Serverless Functions
 if (process.env.NODE_ENV !== "production") {
-  const PORT = process.env.PORT || 5000;
+  const PORT = process.env.PORT || 5001;
   httpServer.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
   });

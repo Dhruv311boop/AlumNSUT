@@ -99,7 +99,7 @@ export default function LoginForm({ role }: LoginFormProps) {
               <label className="block text-sm font-medium text-slate-700 mb-1">Email address</label>
               <input
                 type="email" name="email" required value={formData.email} onChange={handleChange}
-                className="appearance-none block w-full px-3 py-2.5 border border-slate-300 rounded-lg shadow-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500 sm:text-sm transition-all"
+                className="appearance-none text-slate-900 block w-full px-3 py-2.5 border border-slate-300 rounded-lg shadow-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500 sm:text-sm transition-all"
                 placeholder={role === 'STUDENT' ? "student@nsut.ac.in" : "alumni@company.com"}
               />
             </div>
@@ -108,7 +108,7 @@ export default function LoginForm({ role }: LoginFormProps) {
               <label className="block text-sm font-medium text-slate-700 mb-1">Password</label>
               <input
                 type="password" name="password" required value={formData.password} onChange={handleChange}
-                className="appearance-none block w-full px-3 py-2.5 border border-slate-300 rounded-lg shadow-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500 sm:text-sm transition-all"
+                className="appearance-none text-slate-900 block w-full px-3 py-2.5 border border-slate-300 rounded-lg shadow-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500 sm:text-sm transition-all"
               />
             </div>
 

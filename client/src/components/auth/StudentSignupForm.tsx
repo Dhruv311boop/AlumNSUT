@@ -96,8 +96,8 @@ export default function StudentSignupForm() {
               <div>
                 <label className="block text-sm font-medium text-slate-700 mb-1">Full Name *</label>
                 <input
-                  type="text" name="fullName" required value={formData.fullName} onChange={handleChange}
-                  className="appearance-none block w-full px-3 py-2.5 border border-slate-300 rounded-lg shadow-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500 sm:text-sm transition-all"
+                  type="text" name="fullName" required value={formData.fullName} onChange={handleChange} autoComplete="name"
+                  className="appearance-none text-slate-900 bg-white block w-full px-4 py-3 border border-slate-300 rounded-lg shadow-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500 text-base caret-slate-900 transition-all relative z-10"
                   placeholder="John Doe"
                 />
               </div>
@@ -106,7 +106,7 @@ export default function StudentSignupForm() {
                 <label className="block text-sm font-medium text-slate-700 mb-1">Email *</label>
                 <input
                   type="email" name="email" required value={formData.email} onChange={handleChange}
-                  className="appearance-none block w-full px-3 py-2.5 border border-slate-300 rounded-lg shadow-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500 sm:text-sm transition-all"
+                  className="appearance-none text-slate-900 block w-full px-3 py-2.5 border border-slate-300 rounded-lg shadow-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500 sm:text-sm transition-all"
                   placeholder="student@nsut.ac.in"
                 />
               </div>
@@ -115,7 +115,7 @@ export default function StudentSignupForm() {
                 <label className="block text-sm font-medium text-slate-700 mb-1">Phone *</label>
                 <input
                   type="tel" name="phone" required value={formData.phone} onChange={handleChange}
-                  className="appearance-none block w-full px-3 py-2.5 border border-slate-300 rounded-lg shadow-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500 sm:text-sm transition-all"
+                  className="appearance-none text-slate-900 block w-full px-3 py-2.5 border border-slate-300 rounded-lg shadow-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500 sm:text-sm transition-all"
                   placeholder="+91 9876543210"
                 />
               </div>
@@ -124,7 +124,7 @@ export default function StudentSignupForm() {
                 <label className="block text-sm font-medium text-slate-700 mb-1">Department *</label>
                 <select 
                   name="department" required value={formData.department} onChange={handleChange}
-                  className="appearance-none block w-full px-3 py-2.5 border border-slate-300 rounded-lg shadow-sm bg-white focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500 sm:text-sm transition-all"
+                  className="appearance-none text-slate-900 block w-full px-3 py-2.5 border border-slate-300 rounded-lg shadow-sm bg-white focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500 sm:text-sm transition-all"
                 >
                   <option value="">Select Department</option>
                   <option value="COE">Computer Engineering</option>
@@ -141,7 +141,7 @@ export default function StudentSignupForm() {
                 <label className="block text-sm font-medium text-slate-700 mb-1">Graduation Year *</label>
                 <input
                   type="number" name="graduationYear" required min="2024" max="2030" value={formData.graduationYear} onChange={handleChange}
-                  className="appearance-none block w-full px-3 py-2.5 border border-slate-300 rounded-lg shadow-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500 sm:text-sm transition-all"
+                  className="appearance-none text-slate-900 block w-full px-3 py-2.5 border border-slate-300 rounded-lg shadow-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500 sm:text-sm transition-all"
                   placeholder="2026"
                 />
               </div>
@@ -150,7 +150,7 @@ export default function StudentSignupForm() {
                 <label className="block text-sm font-medium text-slate-700 mb-1">LinkedIn Profile *</label>
                 <input
                   type="url" name="linkedinUrl" required value={formData.linkedinUrl} onChange={handleChange}
-                  className="appearance-none block w-full px-3 py-2.5 border border-slate-300 rounded-lg shadow-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500 sm:text-sm transition-all"
+                  className="appearance-none text-slate-900 block w-full px-3 py-2.5 border border-slate-300 rounded-lg shadow-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500 sm:text-sm transition-all"
                   placeholder="https://linkedin.com/in/..."
                 />
               </div>
@@ -160,7 +160,7 @@ export default function StudentSignupForm() {
               <label className="block text-sm font-medium text-slate-700 mb-1">GitHub Profile (Optional)</label>
               <input
                 type="url" name="githubUrl" value={formData.githubUrl} onChange={handleChange}
-                className="appearance-none block w-full px-3 py-2.5 border border-slate-300 rounded-lg shadow-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500 sm:text-sm transition-all"
+                className="appearance-none text-slate-900 block w-full px-3 py-2.5 border border-slate-300 rounded-lg shadow-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500 sm:text-sm transition-all"
                 placeholder="https://github.com/..."
               />
             </div>
@@ -170,7 +170,7 @@ export default function StudentSignupForm() {
                 <label className="block text-sm font-medium text-slate-700 mb-1">Password *</label>
                 <input
                   type="password" name="password" required minLength={8} value={formData.password} onChange={handleChange}
-                  className="appearance-none block w-full px-3 py-2.5 border border-slate-300 rounded-lg shadow-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500 sm:text-sm transition-all"
+                  className="appearance-none text-slate-900 block w-full px-3 py-2.5 border border-slate-300 rounded-lg shadow-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500 sm:text-sm transition-all"
                 />
               </div>
 
@@ -178,7 +178,7 @@ export default function StudentSignupForm() {
                 <label className="block text-sm font-medium text-slate-700 mb-1">Confirm Password *</label>
                 <input
                   type="password" name="confirmPassword" required minLength={8} value={formData.confirmPassword} onChange={handleChange}
-                  className="appearance-none block w-full px-3 py-2.5 border border-slate-300 rounded-lg shadow-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500 sm:text-sm transition-all"
+                  className="appearance-none text-slate-900 block w-full px-3 py-2.5 border border-slate-300 rounded-lg shadow-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500 sm:text-sm transition-all"
                 />
               </div>
             </div>
