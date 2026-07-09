@@ -4,8 +4,8 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider = "sqlite"
+  url      = "file:/tmp/dev.db"
 }
 
 enum Role {
@@ -55,9 +55,9 @@ model MentorProfile {
   company           String
   industry          String
   yearsOfExperience Int
-  bio               String   @db.Text
+  bio               String
   linkedinUrl       String?
-  availability      String[] // Array of available days/times, e.g. ["Monday 10AM-12PM"]
+  availability      String // Store as JSON string
   
   rating            Float    @default(0.0)
   sessionsCompleted Int      @default(0)
@@ -75,7 +75,7 @@ model StudentProfile {
   graduationYear Int
   linkedinUrl    String
   githubUrl      String?
-  bio            String?  @db.Text
+  bio            String?
 }
 
 model Booking {
@@ -90,7 +90,7 @@ model Booking {
   date        DateTime
   time        String        // E.g., "10:00 AM - 11:00 AM"
   topic       String
-  message     String?       @db.Text
+  message     String?
   status      BookingStatus @default(PENDING)
   
   createdAt   DateTime      @default(now())
@@ -100,9 +100,9 @@ model Booking {
 model ForumPost {
   id          String    @id @default(uuid())
   title       String
-  content     String    @db.Text
+  content     String
   category    String    @default("General")
-  tags        String[]
+  tags        String // Store as JSON string
   likesCount  Int       @default(0)
   views       Int       @default(0)
   isAnonymous Boolean   @default(false)
@@ -152,7 +152,7 @@ model Bookmark {
 
 model Comment {
   id          String    @id @default(uuid())
-  content     String    @db.Text
+  content     String
   
   postId      String
   post        ForumPost @relation(fields: [postId], references: [id], onDelete: Cascade)

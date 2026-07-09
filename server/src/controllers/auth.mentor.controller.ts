@@ -31,7 +31,7 @@ export const signup = async (req: Request, res: Response): Promise<void> => {
             industry,
             bio,
             linkedinUrl,
-            availability: availability || [],
+            availability: JSON.stringify(availability || []),
             profilePicture
           }
         }

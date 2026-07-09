@@ -37,7 +37,11 @@ export const getPosts = async (req: Request, res: Response): Promise<void> => {
       }
     });
 
-    res.json(posts);
+    const parsedPosts = posts.map(post => ({
+      ...post,
+      tags: typeof post.tags === 'string' ? JSON.parse(post.tags) : post.tags
+    }));
+    res.json(parsedPosts);
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Server error fetching posts' });
@@ -59,7 +63,7 @@ export const createPost = async (req: AuthRequest, res: Response): Promise<void>
         title,
         content,
         category,
-        tags: tags || [],
+        tags: JSON.stringify(tags || []),
         isAnonymous: isAnonymous || false,
         authorId: userId,
       }
@@ -113,7 +117,11 @@ export const getPostById = async (req: Request, res: Response): Promise<void> =>
       data: { views: { increment: 1 } }
     });
 
-    res.json(post);
+    const parsedPost = {
+      ...post,
+      tags: typeof post.tags === 'string' ? JSON.parse(post.tags) : post.tags
+    };
+    res.json(parsedPost);
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Server error fetching post' });

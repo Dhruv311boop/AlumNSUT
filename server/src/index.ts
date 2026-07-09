@@ -4,10 +4,23 @@ import helmet from "helmet";
 import morgan from "morgan";
 import { createServer } from "http";
 import { Server } from "socket.io";
+import fs from "fs";
+import path from "path";
 import dotenv from "dotenv";
 import routes from "./routes";
 
 dotenv.config();
+
+try {
+  const dbPath = path.join(__dirname, "..", "prisma", "dev.db");
+  const tmpPath = "/tmp/dev.db";
+  if (!fs.existsSync(tmpPath)) {
+    console.log("Copying dev.db to /tmp/dev.db");
+    fs.copyFileSync(dbPath, tmpPath);
+  }
+} catch (e) {
+  console.error("Failed to copy dev.db", e);
+}
 
 const app = express();
 const httpServer = createServer(app);
