@@ -30,7 +30,7 @@ export default function StudentDashboard() {
       {/* Dashboard Header */}
       <nav className="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-slate-200 px-6 py-4 flex justify-between items-center shadow-sm">
         <div className="flex items-center space-x-3">
-          <img src="/logo.png" alt="Logo" className="h-10 w-10 object-contain rounded-full border border-slate-200 shadow-sm" />
+          <img src="/logo.jpg" alt="Logo" className="h-10 w-10 object-contain rounded-full border border-slate-200 shadow-sm" />
           <span className="text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-rose-500">
             AlumNSUT
           </span>

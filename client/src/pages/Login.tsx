@@ -34,7 +34,7 @@ export default function Login() {
         className="sm:mx-auto sm:w-full sm:max-w-md text-center"
       >
         <Link to="/" className="inline-block mb-6">
-           <img src="/logo.png" alt="AlumNSUT Logo" className="h-16 w-16 mx-auto object-contain rounded-full border border-slate-200 shadow-sm" />
+           <img src="/logo.jpg" alt="AlumNSUT Logo" className="h-16 w-16 mx-auto object-contain rounded-full border border-slate-200 shadow-sm" />
         </Link>
         <h2 className="text-center text-3xl font-extrabold text-slate-900">
           Sign in to your account
